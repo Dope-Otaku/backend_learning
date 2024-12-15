@@ -21,7 +21,7 @@ const errorHandler = (err, req, res, next) => {
             res.json({title: "server not found | server error", message: err.message, stackTrace: err.stack});
             break;
         default:
-            Console.log("No Error, All Good")
+            console.log("No Error, All Good")
             break;
     }
 
