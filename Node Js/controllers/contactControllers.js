@@ -1,26 +1,30 @@
+const asynchandler = require("express-async-handler")
+
+
+
 //@desc get all contacts
 //@access public
 //@route GET /api/contact
 
-const getContacts  = (req, res) => {
+const getContacts  = asynchandler(async (req, res) => {
     res.status(200).json({"message": "this api will fetch all Contacts list"})
-}
+})
 
 
 //@desc get unique contacts
 //@access public
 //@route GET /api/contact/:id
 
-const getContact  = (req, res) => {
+const getContact  = asynchandler(async (req, res) => {
     res.status(200).json({"message": `this api will fetch contact list of ID: ${req.params.id}`})
-}
+})
 
 
 //@desc create unique contacts
 //@access public
 //@route POST /api/contact
 
-const createContact  = (req, res) => {
+const createContact  = asynchandler(async (req, res) => {
     const {name, email, phone} = req.body;
     if(!name || !email || !phone){
         res.status(400);
@@ -32,23 +36,23 @@ const createContact  = (req, res) => {
         Name: ${req.body.name},
         Email: ${req.body.email},
         Phone: ${req.body.phone}`)
-}
+})
 
 //@desc update unique contacts
 //@access public
 //@route PUT /api/contact/:id
 
-const updateContact  = (req, res) => {
+const updateContact  = asynchandler(async (req, res) => {
     res.status(200).json({"message": `Contact with ID: ${req.params.id} updated successfully`})
-}
+})
 
 //@desc delete unique contacts
 //@access public
 //@route DELETE /api/contact/:id
 
-const deleteContact  = (req, res) => {
+const deleteContact  = asynchandler(async (req, res) => {
     res.status(200).json({"message": `Contact with ID: ${req.params.id} deleted successfully`})
-}
+})
 
 
 
