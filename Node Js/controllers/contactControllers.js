@@ -21,13 +21,17 @@ const getContact  = (req, res) => {
 //@route POST /api/contact
 
 const createContact  = (req, res) => {
-    res.status(200).json({"message": "this api will create a new contact"})
-    console.log(`the request body contains: ${req.body}`)
     const {name, email, phone} = req.body;
     if(!name || !email || !phone){
         res.status(400);
+        console.error(`error 400`)
         throw new Error("All fields are mandatory !")
     }
+    res.status(201).json({message : "created a new contact"})
+    console.log(`the request body contains: 
+        Name: ${req.body.name},
+        Email: ${req.body.email},
+        Phone: ${req.body.phone}`)
 }
 
 //@desc update unique contacts
