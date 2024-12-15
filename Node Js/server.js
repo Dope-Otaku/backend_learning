@@ -5,9 +5,7 @@ const port = process.env.PORT || 5000;
 const app = express();
 
 
-app.get("/api/contacts", (req, res) =>{
-    res.status(200).json({"message": "this api will fetch Contacts list"})
-})
+app.use("/api/contacts", require("./Routes/contactRoutes"));  //added a middleware so that we can handle all routes cleanly
 
 
 
