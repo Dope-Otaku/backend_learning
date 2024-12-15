@@ -1,31 +1,22 @@
 const express = require("express");
 const router = express.Router();
+const {getContacts, getContact, createContact, updateContact, deleteContact} = require("../controllers/contactControllers")
 
 //this route will fetch all contact list
-router.route("/").get((req, res) => {
-    res.status(200).json({"message": "this api will fetch all Contacts list"})
-});
+router.route("/").get(getContacts);
 
 
 //this route will handle unique contact with id number
-router.route("/:id").get((req, res) => {
-    res.status(200).json({"message": `this api will fetch contact list of ID: ${req.params.id}`})
-});
+router.route("/:id").get(getContact);
 
 // this route will create a new contact 
-router.route("/").post((req, res) => {
-    res.status(200).json({"message": "this api will create a new contact"})
-});
+router.route("/").post(createContact);
 
 //this route will handle update unique contacts with id
-router.route("/:id").put((req, res) => {
-    res.status(200).json({"message": `Contact with ID: ${req.params.id} updated successfully`})
-});
+router.route("/:id").put(updateContact);
 
 //this route will delete unique contacts with id
-router.route("/:id").delete((req, res) => {
-    res.status(200).json({"message": `Contact with ID: ${req.params.id} deleted successfully`})
-});
+router.route("/:id").delete(deleteContact);
 
 
 
