@@ -1,22 +1,20 @@
-const { timeStamps } = require('console')
 const mongoose = require('mongoose')
-const { type } = require('os')
 
 const contactSchema = mongoose.Schema({
     name: {
         type: String,
         required: [true, "Please add your name"]
     },
-    Email: {
+    email: {
         type: String,
         required: [true, "Please enter your email address"]
     },
-    Phone: {
+    phone: {
         type: String,
         required: [true, "Please enter your phone number"]
     }
 },{
-    timeStamps : true
+    timestamps : true // adding a timestamp so that we can see the database insertion time
 })
 
 
