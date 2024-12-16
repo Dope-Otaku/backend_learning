@@ -4,7 +4,7 @@ const Contact = require("../models/contactModel")
 
 
 //@desc get all contacts
-//@access public
+//@access private
 //@route GET /api/contact
 
 const getContacts  = asynchandler(async (req, res) => {
@@ -14,7 +14,7 @@ const getContacts  = asynchandler(async (req, res) => {
 
 
 //@desc get unique contacts
-//@access public
+//@access private
 //@route GET /api/contact/:id
 
 const getContact  = asynchandler(async (req, res) => {
@@ -28,7 +28,7 @@ const getContact  = asynchandler(async (req, res) => {
 
 
 //@desc create unique contacts
-//@access public
+//@access private
 //@route POST /api/contact
 
 const createContact  = asynchandler(async (req, res) => {
@@ -52,7 +52,7 @@ const createContact  = asynchandler(async (req, res) => {
 })
 
 //@desc update unique contacts
-//@access public
+//@access private
 //@route PUT /api/contact/:id
 
 const updateContact  = asynchandler(async (req, res) => {
@@ -71,7 +71,7 @@ const updateContact  = asynchandler(async (req, res) => {
 })
 
 //@desc delete unique contacts
-//@access public
+//@access private
 //@route DELETE /api/contact/:id
 
 const deleteContact  = asynchandler(async (req, res) => {

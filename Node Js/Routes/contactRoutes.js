@@ -1,10 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const {getContacts, getContact, createContact, updateContact, deleteContact} = require("../controllers/contactControllers")
+const tokenValidation = require("../middleware/tokenValidationHandler")
+
+
+router.use(tokenValidation);
 
 //this route will fetch all contact list
 router.route("/").get(getContacts);
-
 
 //this route will handle unique contact with id number
 router.route("/:id").get(getContact);
