@@ -80,7 +80,7 @@ const loginUser = asynchandler(async (req, res) => {
                 },
             },
             process.env.ACCESS_TOKEN_STRING,
-            { expiresIn: "1m" } // Correctly structured options argument
+            { expiresIn: "15m" } // Correctly structured options argument
         );
 
         // Return token in response
