@@ -25,12 +25,27 @@ const registerUser  = asynchandler(async (req, res)=>{
 
     // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
-    console.log("Hashed Password: ", hashedPassword);
+    // console.log("Hashed Password: ", hashedPassword);
+
+    //saving the new user
+    const newUser = await Users.create({
+        username,
+        email,
+        password: hashedPassword
+    })
+    if(newUser){
+        res.status(201).json({_id: newUser.id, email: newUser.email})
+    }else{
+        res.status(400)
+        throw new Error("Registeration Failed")
+    }
+    console.log(`the request body contains: 
+        UserName: ${newUser.username},
+        Email: ${newUser.email},
+        `)
     res.status(200).json({message: "registered successfull"})
-    // console.log(`the request body contains: 
-    //     Name: ${req.body.name},
-    //     Email: ${req.body.email},
-    //     Phone: ${req.body.phone}`)
+
+
 })
 
 
