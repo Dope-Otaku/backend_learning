@@ -7,7 +7,6 @@ const port = process.env.PORT || 5000;
 dbConnect(); //database connection initialized
 const app = express();
 
-// 1:25:13
 
 app.use(express.json())
 app.use("/api/contacts", require("./Routes/contactRoutes"));  //added a route for contacts

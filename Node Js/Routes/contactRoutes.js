@@ -4,7 +4,7 @@ const {getContacts, getContact, createContact, updateContact, deleteContact} = r
 const tokenValidation = require("../middleware/tokenValidationHandler")
 
 
-router.use(tokenValidation);
+router.use(tokenValidation); //by applying this we can make every routes private at once!
 
 //this route will fetch all contact list
 router.route("/").get(getContacts);
