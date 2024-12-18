@@ -4,7 +4,7 @@ const asyncHandler = require("express-async-handler")
 
 const tokenValidation = asyncHandler(async (req, res, next)=>{
     let token;
-    const authHeader = req.headers.authorization || req.headers.authorization;
+    const authHeader = req.headers.Authorization || req.headers.authorization;  //fixed small letter
     if(authHeader && authHeader.startsWith("Bearer")){
         token = authHeader.split(" ")[1]
         jwt.verify(token, process.env.ACCESS_TOKEN_STRING, (err, decoded)=>{
